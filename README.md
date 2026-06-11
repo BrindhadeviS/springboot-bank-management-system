@@ -53,13 +53,13 @@ This project handles Users, Accounts, Transactions, and Loans with proper relati
 ## 🗂️ Project Structure
 
 
-edu.jsp.BankingApplication
-│
-├── Controller
-├── Service
-├── Repository
-├── Entity
-├── Exception
+edu.jsp.BankingApplication  
+│  
+├── Controller    
+├── Service  
+├── Repository  
+├── Entity  
+├── Exception  
 
 
 ---
@@ -78,15 +78,17 @@ spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true
+```
 
-📸 Screenshots
-🖥️ Eclipse (Project Structure)
+## 📸 Screenshots
+
+🖥️ Eclipse (Project Structure)  
 Shows full backend structure like Controller, Service, Repository, Entity, Exception.
 
 📌 Screenshot:
 ![Eclipse](screenshots/eclipse_screenshot.png)
 
-📬 Postman (API Testing)
+📬 Postman (API Testing) 
 Shows API requests and responses for:
 
 User APIs
@@ -107,50 +109,53 @@ Shows tables:
 📌 Screenshot:
 ![MySql](screenshots/mysql_screenshot.png)
 
-🔥 API Endpoints
+## 🔥 API Endpoints  
 
 👤 User APIs
-POST   /api/user
-GET    /api/user/{id}
-PUT    /api/user/{id}
-DELETE /api/user/{id}
-GET    /api/user/byName/{name}
 
-🏦 Account APIs
-POST   /api/account/{userId}
-GET    /api/account/{accountId}
-DELETE /api/account
-GET    /api/account/getBalance/{accountId}
-GET    /api/account/getAccountByUserId/{userId}
+GET /api/user/{userId} → Get user by ID  
+POST /api/user → Create new user  
+DELETE /api/user/{userId} → Delete user  
+GET /api/user/byName/{name} → Get users by name  
 
-💰 Transaction APIs
-POST   /api/transaction/account/{accountId}
-GET    /api/transaction/user/{userId}?pageno=0&pageSize=3
-GET    /api/transaction/user/{userId}/amount?st=&end=
-GET    /api/transaction/user/{userId}/date?st=&end=
+🏦 Account APIs  
 
-🏠 Loan APIs
-POST   /api/loan/{userId}
-GET    /api/loan/{id}
-GET    /api/loan/getByUserId/{userId}
-GET    /api/loan/getStatus/{loanId}
-DELETE /api/loan/user/{userId}/loan/{loanId}
+POST /api/account/{userId} → Create account for user  
+GET /api/account/{accountId} → Get account by ID  
+DELETE /api/account?userId=&accountId= → Delete account  
+GET /api/account/getBalance/{accountId} → Get account balance  
+GET /api/account/getAccountByUserId/{userId} → Get accounts by user  
 
-📊 Validation & Exception Handling
-@Valid used for input validation
-@ControllerAdvice for global exception handling
-Custom Exception: ResourceNotFoundException
+💰 Transaction APIs  
 
-⚠️ Important Notes
-Email must be UNIQUE for each user
-Account number must be UNIQUE
-Transactions update account balance
-Withdraw not allowed if balance is insufficient
+POST /api/transaction/account/{accountId} → Add transaction (deposit/withdraw)  
+GET /api/transaction/user/{userId} → Get all transactions (pagination supported)  
+GET /api/transaction/user/{userId}/amount → Filter by amount range  
+GET /api/transaction/user/{userId}/date → Filter by date range  
 
-🧠 Learning Outcome
-This project demonstrates:
-Spring Boot REST API development
-Entity relationships (OneToMany, ManyToOne)
-Transaction handling
+🏦 Loan APIs  
+
+POST /api/loan/{userId} → Apply loan  
+GET /api/loan/{id} → Get loan by ID  
+DELETE /api/loan/user/{userId}/loan/{loanId} → Delete loan  
+GET /api/loan/getByUserId/{userId} → Get loans by user  
+GET /api/loan/getStatus/{loanId} → Get loan status  
+
+### 📊 Validation & Exception Handling  
+- @Valid used for input validation  
+- @ControllerAdvice for global exception handling  
+- Custom Exception: ResourceNotFoundException  
+
+### ⚠️ Important Notes  
+- Email must be UNIQUE for each user  
+- Account number must be UNIQUE  
+- Transactions update account balance  
+- Withdraw not allowed if balance is insufficient  
+
+### 🧠 Learning Outcome  
+- This project demonstrates:  
+- Spring Boot REST API development  
+- Entity relationships (OneToMany, ManyToOne)  
+- Transaction handling  
 Pagination and filtering
 Exception handlingucture
